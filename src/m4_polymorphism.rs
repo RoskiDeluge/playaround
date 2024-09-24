@@ -9,7 +9,7 @@ impl EthereumAddress for &str {
     fn convert_to_address(&self) -> Result<Address, &'static str> {
         match Address::from_str(self) {
             Ok(address) => Ok(address),
-            Err(_) => Err("Invalid Ethereum address"),
+            Err(_) => Err("Invalid Ethereum Address String"),
         }
     }
 }
@@ -35,7 +35,7 @@ mod test {
 
         let new_addr: Address = get_ethereum_data(addr);
         assert_eq!(
-            addr,
+            new_addr,
             Address::from_str("0x71c7656ec7ab88b098defb751b7401b5f6d8976f").unwrap()
         );
 
